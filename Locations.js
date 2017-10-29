@@ -72,7 +72,7 @@
             }
 
             function CameraRoom() {
-                var message = " You rush to the back room to check the security cameras and see your dog running in circles";
+                var message = "You rush to the back room to check the security cameras and see your dog running in circles";
                 UpdateDisplay(message);
                 if (VisitedLoc2 == 0) {
                     score += 5;
@@ -84,7 +84,7 @@
             }
 
             function FashionLab() {
-                var message = " You are the fashion lab and see nothing but clothes.";
+                var message = "You are the fashion lab and see nothing but clothes.";
                 UpdateDisplay(message);
                 if (VisitedLoc3 == 0) {
                     score += 5;
@@ -161,7 +161,7 @@
                 if (VisitedLoc9 == 0) {
                     score += 5;
                     document.getElementById("scorebox").value = "Score:" + score;
-                    VisitedLoc8 = 1;
+                    VisitedLoc9 = 1;
                 } else {
                     document.getElementById("scorebox").value = "Score:" + score;
                 }
@@ -173,7 +173,7 @@
                 if (VisitedLoc10 == 0) {
                     score += 5;
                     document.getElementById("scorebox").value = "Score:" + score;
-                    VisitedLoc8 = 1;
+                    VisitedLoc10 = 1;
                 } else {
                     document.getElementById("scorebox").value = "Score:" + score;
                 }
@@ -243,12 +243,28 @@
             //East
             function btnEast() {
                 if (currentLoc === 0) {
-                    currentLoc = 3;
+                    currentLoc = 10;
                     look();
                     document.getElementById("btnEast").disabled = false;
                     document.getElementById("btnWest").disabled = false;
                     document.getElementById("btnSouth").disabled = true;
                     document.getElementById("btnNorth").disabled = true;
+				} else {
+					if (currentLoc === 10) {
+						currentLoc = 3;
+						look ();
+						document.getElementById("btnEast").disabled = false;
+						document.getElementById("btnWest").disabled = false;
+						document.getElementById("btnSouth").disabled = true;
+						document.getElementById("btnNorth").disabled = true;
+				} else {
+					if (currentLoc === 9) {
+						currentLoc = 5;
+						look() ;
+						document.getElementById("btnEast").disabled = false;
+                        document.getElementById("btnWest").disabled = false;
+                        document.getElementById("btnSouth").disabled = true;
+                        document.getElementById("btnNorth").disabled = true;
                 } else {
                     if (currentLoc === 3) {
                         currentLoc = 7;
@@ -273,8 +289,10 @@
                                 document.getElementById("btnWest").disabled = false;
                                 document.getElementById("btnSouth").disabled = false;
                                 document.getElementById("btnNorth").disabled = false;
-
+									
+							}
                             }
+						}	
                         }
                     }
                 }
@@ -289,8 +307,24 @@
                     document.getElementById("btnWest").disabled = false;
                     document.getElementById("btnSouth").disabled = true;
                     document.getElementById("btnNorth").disabled = true;
+				} else {
+					if (currentLoc === 5) {
+						currentLoc = 9;
+						look ();
+						document.getElementById("btnEast").disabled = false;
+						document.getElementById("btnWest").disabled = false;
+						document.getElementById("btnSouth").disabled = true;
+						document.getElementById("btnNorth").disabled = true;
+				} else {
+					if (currentLoc === 10) {
+						currentLoc = 0;
+						look();
+						document.getElementById("btnEast").disabled = false;
+                        document.getElementById("btnWest").disabled = false;
+                        document.getElementById("btnSouth").disabled = false;
+                        document.getElementById("btnNorth").disabled = false;
                 } else {
-                    if (currentLoc === 5) {
+                    if (currentLoc === 9) {
                         currentLoc = 6;
                         look();
                         document.getElementById("btnEast").disabled = true;
@@ -321,11 +355,13 @@
                                     document.getElementById("btnWest").disabled = false;
                                     document.getElementById("btnSouth").disabled = true;
                                     document.getElementById("btnNorth").disabled = true;
+								}
+								}
+								}
                                 }
                             }
                         }
                     }
-                }
 
                 look();
             }
