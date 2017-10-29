@@ -48,7 +48,7 @@
 				
 				 //Functions for each location to display message
             function MainEntrance() {
-                var message = "You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!";
+                var message = "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!";
                 UpdateDisplay(message);
                 if (VisitedLoc0 == 0) {
                     score += 5;
@@ -60,7 +60,7 @@
             }
 
             function SecurityOffice() {
-                var message = "You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...";
+                var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...";
                 UpdateDisplay(message);
                 if (VisitedLoc1 == 0) {
                     score += 5;
@@ -72,7 +72,7 @@
             }
 
             function CameraRoom() {
-                var message = "You rush to the back room to check the security cameras and see your dog running in circles";
+                var message = "3. You rush to the back room to check the security cameras and see your dog running in circles";
                 UpdateDisplay(message);
                 if (VisitedLoc2 == 0) {
                     score += 5;
@@ -84,7 +84,7 @@
             }
 
             function FashionLab() {
-                var message = "You are the fashion lab and see nothing but clothes.";
+                var message = "8.You are the fashion lab and see nothing but clothes.";
                 UpdateDisplay(message);
                 if (VisitedLoc3 == 0) {
                     score += 5;
@@ -108,7 +108,7 @@
             }
 
             function ChemistryLab() {
-                var message = "You head down to the chemistry lab and hear barking";
+                var message = "4.You head down to the chemistry lab and hear barking";
                 UpdateDisplay(message);
                 if (VisitedLoc5 == 0) {
                     score += 5;
@@ -120,7 +120,7 @@
             }
 
             function FoundDog() {
-                var message = "Donnelly! You found your dog, sitting by the bathroom.";
+                var message = "6. Donnelly! You found your dog, sitting by the bathroom.";
                 UpdateDisplay(message);
                 if (VisitedLoc6 == 0) {
                     score += 5;
@@ -132,7 +132,7 @@
             }
 
             function DNCafe() {
-                var message = "You are at the DN Cafe, maybe Donnelly was attracted to the food?";
+                var message = "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?";
                 UpdateDisplay(message);
                 if (VisitedLoc7 == 0) {
                     score += 5;
@@ -144,7 +144,7 @@
             }
 
             function SubLine() {
-                var message = "Nothing but subs in here...";
+                var message = "10. Nothing but subs in here...";
                 UpdateDisplay(message);
                 if (VisitedLoc8 == 0) {
                     score += 5;
@@ -156,7 +156,7 @@
             }
 			
 			function Restroom() {
-                var message = "You check the restroom to see if your dog is taking a drink from the toliet";
+                var message = "5. You check the restroom to see if your dog is taking a drink from the toliet";
                 UpdateDisplay(message);
                 if (VisitedLoc9 == 0) {
                     score += 5;
@@ -168,7 +168,7 @@
             }
 			
 			function Computerlab() {
-                var message = "Nothing but students studying in the computer lab.";
+                var message = "7. Nothing but students studying in the computer lab.";
                 UpdateDisplay(message);
                 if (VisitedLoc10 == 0) {
                     score += 5;
@@ -333,7 +333,7 @@
                         document.getElementById("btnNorth").disabled = true;
                     } else {
                         if (currentLoc === 3) {
-                            currentLoc = 0;
+                            currentLoc = 10;
                             look();
                             document.getElementById("btnEast").disabled = false;
                             document.getElementById("btnWest").disabled = false;
