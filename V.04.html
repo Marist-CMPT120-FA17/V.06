@@ -26,6 +26,8 @@
             var VisitedLoc6 = 0;
             var VisitedLoc7 = 0;
             var VisitedLoc8 = 0;
+			var VistiedLoc9 = 0;
+			var VisitedLoc10 = 0;
 
             // Switch Case Initi
             function init() {
@@ -47,12 +49,17 @@
                             if (userText === "W") {
                                 response = btnWest()
                             } else {
-                                alert("Valid commands are N,S,E,W");
+                                ErrorMessage ();
                             }
                         }
                     }
                 }
             }
+			//Error Message Functions
+			function ErrorMessage () {
+				var message = "I do not understand your commands. Valid commands are N,S,E,W"
+				UpdateDisplay(message);
+				}
             //Functions for each location to display message
             function MainEntrance() {
                 var message = "You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!";
@@ -344,6 +351,12 @@
                     case 8:
                         SubLine();
                         break;
+					case 9:
+						Restroom ();
+						break;
+					case 10:
+						Computerlab ();
+						break;
                 }
             }
             //Updating the text box
