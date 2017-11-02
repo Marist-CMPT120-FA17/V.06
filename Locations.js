@@ -39,8 +39,11 @@
 					if (userText === "help") {
 						HelpMessage ();
 					} else { 
-						if (userText === "list") {
-						InventoryMessage ();
+						if (userText === "take key") {
+						SecurityItem ();
+						} else {
+							if (userText === "take hoagie") {
+							SubItem ();
                  } else {
                      ErrorMessage();
 				 }
@@ -50,10 +53,20 @@
      }
  }
  }
+ }
+ function inventory () {
+	 this.item1 = "";
+	 this.item2= "";
+	 this.display = function () {
+				var msg = this.item1 + this.item2
+				UpdateInventory(msg);
+	 }
+ }
+	 
 
  //Error Message/Help Message Functions
  function ErrorMessage() {
-     var message = "I do not understand your commands. Valid commands are N,S,E,W,help,take and inventory"
+     var message = "I do not understand your commands. Valid commands are N,S,E,W,help,take and list"
      UpdateDisplay(message);
  }
  function HelpMessage () {
@@ -62,15 +75,20 @@
 			UpdateDisplay(message);
  }
  
- function Inventory () {
-	 this.firstItem = "";
-	 this.secondItem = "";
-	 this.list = function () {
-			var message = this.firstItem + this.secondItem;
-				UpdateDisplay (message);
+ function SecurityItem () {
+	 var securityItem = new inventory();
+		securityItem.item1 = "Key";
+		securityItem.item2 = "";
+		securityItem.display ();
  }
- 
+ function SubItem () {
+	var subItem = new inventory ();
+		subItem.item1 = "";
+		subItem.item2 = "Hoagie";
+		subItem.display ();
+ }
  //Functions for each location to display message
+ 
  function MainEntrance() {
      var message = "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!";
      UpdateDisplay(message);
@@ -81,16 +99,10 @@
      } else {
          document.getElementById("scorebox").value = "Score:" + score;
      }
-		 
-		 
  }
-
  function SecurityOffice() {
-   	var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)";
-	 UpdateDisplay(message);
-	 var securityItem = new Inventory ();
-		securityItem.firstItem = "Master Key";
-		securityItem.secondItem = "";
+   	var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter, take key, to pick up key)";
+	UpdateDisplay(message);
      if (VisitedLoc1 == 0) {
          score += 5;
          document.getElementById("scorebox").value = "Score:" + score;
@@ -441,5 +453,5 @@
  }
  function UpdateInventory(msg) {
 	var target = document.getElementById ("inventory");
-	targe.value = msg + "\n\n";
+	target.value = msg + "\n\n";
  }
