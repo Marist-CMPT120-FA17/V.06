@@ -2,6 +2,9 @@
  //Score and location visits
 
  var score = 0;
+ var inventory = [];
+ var Keytaken = 0;
+ var Hoagietaken= 0;
  var currentLoc = 0;
 
  var VisitedLoc0 = 0;
@@ -16,14 +19,16 @@
  var VisitedLoc9 = 0;
  var VisitedLoc10 = 0;
 
+
  // Switch Case Initi. Loads first location upon opening page
  function init() {
      look();
  }
  //Ability for player to enter text
+ 
  function btnEnter_click() {
-     var userText = document.getElementById("txtCommand").value;
-     var response = "";
+ var userText = document.getElementById("txtCommand").value;
+ var response = "";
      if (userText === "N") {
          response = btnNorth()
      } else {
@@ -39,11 +44,11 @@
 					if (userText === "help") {
 						HelpMessage ();
 					} else { 
-						if (userText === "take key") {
-						SecurityItem ();
+						if (userText === "take") {
+						TakeItem ();
 						} else {
-							if (userText === "take hoagie") {
-							SubItem ();
+							if (userText === "list") {
+							listInventory ();
                  } else {
                      ErrorMessage();
 				 }
@@ -54,15 +59,28 @@
  }
  }
  }
- function inventory () {
-	 this.item1 = "";
-	 this.item2= "";
-	 this.display = function () {
-				var msg = this.item1 + this.item2
-				UpdateInventory(msg);
-	 }
+function TakeItem () {
+	if (currentLoc === 1) {
+		if (Keytaken == 0) {
+			inventory.push("Key");
+			var message = "you have picked up a key";
+			UpdateInventory(message)
+			Keytaken = 1;
+		}
+	}
+	if (currentLoc === 8) {
+		if (Hoagietaken == 0) {
+		inventory.push("Hoagie");
+			var message = "you have picked up a hoagie"
+			UpdateInventory(message)
+			Hoagietaken = 1;
+		}
+	}
+}
+ function listInventory () {
+	var message = "inventory:\n" + inventory;
+	UpdateInventory(message)
  }
-	 
 
  //Error Message/Help Message Functions
  function ErrorMessage() {
@@ -70,8 +88,8 @@
      UpdateDisplay(message);
  }
  function HelpMessage () {
-		alert ( " Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enjoy and find your dog!")
-		var message = " Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enjoy and find your dog!"
+		alert ( " Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enter take to pick up items when possible and list to show your inventory. Enjoy and find your dog!")
+		var message = "Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enter take to pick up items when possible and list to show your inventory. Enjoy and find your dog! "
 			UpdateDisplay(message);
  }
  
@@ -101,7 +119,7 @@
      }
  }
  function SecurityOffice() {
-   	var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter, take key, to pick up key)";
+   	var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)";
 	UpdateDisplay(message);
      if (VisitedLoc1 == 0) {
          score += 5;
@@ -185,7 +203,7 @@
  }
 
  function SubLine() {
-     var message = "10. Nothing but subs in here...";
+     var message = "10. Nothing but subs in here... press take to grab a quick snack";
      UpdateDisplay(message);
      if (VisitedLoc8 == 0) {
          score += 5;
