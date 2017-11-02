@@ -1,5 +1,6 @@
  //Ian Krout 
  //Score and location visits
+
  var score = 0;
  var currentLoc = 0;
 
@@ -12,7 +13,7 @@
  var VisitedLoc6 = 0;
  var VisitedLoc7 = 0;
  var VisitedLoc8 = 0;
- var VistiedLoc9 = 0;
+ var VisitedLoc9 = 0;
  var VisitedLoc10 = 0;
 
  // Switch Case Initi. Loads first location upon opening page
@@ -38,7 +39,7 @@
 					if (userText === "help") {
 						HelpMessage ();
 					} else { 
-						if (userText === "inventory") {
+						if (userText === "list") {
 						InventoryMessage ();
                  } else {
                      ErrorMessage();
@@ -49,6 +50,7 @@
      }
  }
  }
+
  //Error Message/Help Message Functions
  function ErrorMessage() {
      var message = "I do not understand your commands. Valid commands are N,S,E,W,help,take and inventory"
@@ -59,12 +61,18 @@
 		var message = " Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enjoy and find your dog!"
 			UpdateDisplay(message);
  }
-
-
+ 
+ function Inventory () {
+	 this.firstItem = "";
+	 this.secondItem = "";
+	 this.list = function () {
+			var message = this.firstItem + this.secondItem;
+				UpdateDisplay (message);
+ }
+ 
  //Functions for each location to display message
  function MainEntrance() {
      var message = "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!";
-	 var inventory = "Key";
      UpdateDisplay(message);
      if (VisitedLoc0 == 0) {
          score += 5;
@@ -78,8 +86,11 @@
  }
 
  function SecurityOffice() {
-     var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...";
-     UpdateDisplay(message);
+   	var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)";
+	 UpdateDisplay(message);
+	 var securityItem = new Inventory ();
+		securityItem.firstItem = "Master Key";
+		securityItem.secondItem = "";
      if (VisitedLoc1 == 0) {
          score += 5;
          document.getElementById("scorebox").value = "Score:" + score;
