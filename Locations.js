@@ -15,7 +15,7 @@
  var VistiedLoc9 = 0;
  var VisitedLoc10 = 0;
 
- // Switch Case Initi
+ // Switch Case Initi. Loads first location upon opening page
  function init() {
      look();
  }
@@ -37,6 +37,9 @@
 				 } else {
 					if (userText === "help") {
 						HelpMessage ();
+					} else { 
+						if (userText === "inventory") {
+						InventoryMessage ();
                  } else {
                      ErrorMessage();
 				 }
@@ -45,9 +48,10 @@
          }
      }
  }
+ }
  //Error Message/Help Message Functions
  function ErrorMessage() {
-     var message = "I do not understand your commands. Valid commands are N,S,E,W and help"
+     var message = "I do not understand your commands. Valid commands are N,S,E,W,help,take and inventory"
      UpdateDisplay(message);
  }
  function HelpMessage () {
@@ -55,6 +59,7 @@
 		var message = " Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enjoy and find your dog!"
 			UpdateDisplay(message);
  }
+
 
  //Functions for each location to display message
  function MainEntrance() {
