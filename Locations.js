@@ -59,6 +59,7 @@
  }
  }
  }
+ //Nested if to pick up Items
 function TakeItem () {
 	if (currentLoc === 1) {
 		if (Keytaken == 0) {
@@ -77,6 +78,7 @@ function TakeItem () {
 		}
 	}
 }
+//Listing Inventory
  function listInventory () {
 	var message = "inventory:\n" + inventory;
 	UpdateInventory(message)
@@ -93,20 +95,7 @@ function TakeItem () {
 			UpdateDisplay(message);
  }
  
- function SecurityItem () {
-	 var securityItem = new inventory();
-		securityItem.item1 = "Key";
-		securityItem.item2 = "";
-		securityItem.display ();
- }
- function SubItem () {
-	var subItem = new inventory ();
-		subItem.item1 = "";
-		subItem.item2 = "Hoagie";
-		subItem.display ();
- }
  //Functions for each location to display message
- 
  function MainEntrance() {
      var message = "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!";
      UpdateDisplay(message);
