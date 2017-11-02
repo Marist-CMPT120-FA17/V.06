@@ -34,22 +34,32 @@
              } else {
                  if (userText === "W") {
                      response = btnWest()
+				 } else {
+					if (userText === "help") {
+						HelpMessage ();
                  } else {
                      ErrorMessage();
+				 }
                  }
              }
          }
      }
  }
- //Error Message Functions
+ //Error Message/Help Message Functions
  function ErrorMessage() {
-     var message = "I do not understand your commands. Valid commands are N,S,E,W"
+     var message = "I do not understand your commands. Valid commands are N,S,E,W and help"
      UpdateDisplay(message);
+ }
+ function HelpMessage () {
+		alert ( " Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enjoy and find your dog!")
+		var message = " Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enjoy and find your dog!"
+			UpdateDisplay(message);
  }
 
  //Functions for each location to display message
  function MainEntrance() {
      var message = "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!";
+	 var inventory = "Key";
      UpdateDisplay(message);
      if (VisitedLoc0 == 0) {
          score += 5;
@@ -58,6 +68,8 @@
      } else {
          document.getElementById("scorebox").value = "Score:" + score;
      }
+		 
+		 
  }
 
  function SecurityOffice() {
@@ -410,4 +422,8 @@
  function UpdateDisplay(msg) {
      var target = document.getElementById("maintext");
      target.value = msg + "\n\n";
+ }
+ function UpdateInventory(msg) {
+	var target = document.getElementById ("inventory");
+	targe.value = msg + "\n\n";
  }
